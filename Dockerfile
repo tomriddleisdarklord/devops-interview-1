@@ -1,17 +1,10 @@
-FROM python:3.8
+FROM golang:alpine AS build-env
+RUN mkdir /go/src/app && apk update && apk add git
+ADD main.go /go/src/app/
+WORKDIR /go/src/app
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o app .
 
+FROM scratch
 WORKDIR /app
-
-COPY withme-devops-github /withme-devops-github
-COPY requirements.txt /app/requirements.txt
-
-RUN pip install -r requirements.txt
-
-COPY . /app
-
-
-EXPOSE 5000
-
-# RUN pytest /app/tests/
-
-CMD ["python", "/app/main.py"]
+COPY --from=build-env /go/src/app/app .
+ENTRYPOINT [ "./app" ]
