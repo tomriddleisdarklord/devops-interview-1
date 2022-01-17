@@ -1,20 +1,12 @@
 echo "--------------------------------------------------------------------------"
 echo "Getting project, branch and commit names"
-PROJECT=`git config --local remote.origin.url|sed -n 's#.*/\([^.]*\)\.git#\1#p'`
+PROJECT=`devops-interview-1`
 COMMIT=`git log -n 1 --pretty=format:'%h'`
-if [ ! -z "$BRANCH_NAME" ] # ! For multibranch pipelines jobs
-then
-    BRANCH_TAG=$BRANCH_NAME
-    DOCKER_TAG=${BRANCH_TAG}-${COMMIT}
-    if [ $BRANCH_NAME == "main" ]
-    then
-        ENV_K8s=$BRANCH_NAME
-    fi
-else
-    DOCKER_TAG=${BRANCH_TAG}
-fi
 
-echo branch name = $BRANCH_NAME
+
+BRANCH_TAG=$BRANCH_NAME
+DOCKER_TAG=${BRANCH_TAG}-${COMMIT}
+
 echo branch/tag=$BRANCH_TAG
 BOOTSTRAPPER_REPO_URL=git@github.com:withmehealth/bootstrapper-init.git
 ENV_K8s=${ENV_K8s:-$BRANCH_TAG}
