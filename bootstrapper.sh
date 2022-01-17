@@ -40,7 +40,7 @@ echo
 
 echo Deploy ---------------
 
-kubectl -n ${ENV_K8s} apply -f
+kubectl -n ${ENV_K8s} apply -f kubernetes/
 
 echo
 echo --------------------------------------------------------------------------
