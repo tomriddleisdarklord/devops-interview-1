@@ -33,6 +33,7 @@ echo
     docker build --network=host -t ${DOCKER_IMAGE} . || exit 1
     echo
     echo Pushing docker image
+    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${AWS_SHARED_ECR_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com
     docker push ${DOCKER_IMAGE}
     echo Done docker build and push
 }
