@@ -31,6 +31,7 @@ echo
     DOCKER_IMAGE=${AWS_SHARED_ECR_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com/${PROJECT}:${DOCKER_TAG}
     echo Docker image is ${DOCKER_IMAGE}
     docker build --network=host -t ${DOCKER_IMAGE} . || exit 1
+    docker tag ${DOCKER_IMAGE} ${AWS_SHARED_ECR_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com/${PROJECT}:latest
     echo
     echo Pushing docker image
     aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${AWS_SHARED_ECR_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com
