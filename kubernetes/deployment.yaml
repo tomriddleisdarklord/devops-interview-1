@@ -20,4 +20,4 @@ spec:
             - containerPort: 5000
           env:
             - name: MESSAGE
-              value: "Hello world!"
+              value: "This is the message"
