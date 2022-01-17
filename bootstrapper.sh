@@ -35,6 +35,7 @@ echo
     echo Pushing docker image
     aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${AWS_SHARED_ECR_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com
     docker push ${DOCKER_IMAGE}
+    docker push ${AWS_SHARED_ECR_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com/${PROJECT}:latest
     echo Done docker build and push
 }
 

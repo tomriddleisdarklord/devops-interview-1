@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: devops-interview-1
-          image: "033069444749.dkr.ecr.us-east-1.amazonaws.com/devops-interview-1"
+          image: "033069444749.dkr.ecr.us-east-1.amazonaws.com/devops-interview-1:latest"
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
