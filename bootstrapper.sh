@@ -4,7 +4,6 @@ PROJECT='devops-interview-1'
 COMMIT=`git log -n 1 --pretty=format:'%h'`
 
 
-BRANCH_TAG=$BRANCH_NAME
 DOCKER_TAG=${BRANCH_TAG}-${COMMIT}
 
 echo branch/tag=$BRANCH_TAG
