@@ -38,6 +38,9 @@ echo
     echo Done docker build and push
 }
 
+echo Deploy ---------------
+
+kubectl -n ${ENV_K8s} apply -f
 
 echo
 echo --------------------------------------------------------------------------

@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Devops Interview App 1'
+    return 'Devops Interview App 1 \n message: {}'.format(os.environ.get("MESSAGE", "No message"))
 
 
 if __name__ == '__main__':
