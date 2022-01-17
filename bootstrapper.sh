@@ -1,6 +1,6 @@
 echo "--------------------------------------------------------------------------"
 echo "Getting project, branch and commit names"
-PROJECT=`devops-interview-1`
+PROJECT='devops-interview-1'
 COMMIT=`git log -n 1 --pretty=format:'%h'`
 
 
