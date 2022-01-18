@@ -21,3 +21,6 @@ spec:
           env:
             - name: MESSAGE
               value: "This is the message"
+            - name: MESSAGE2
+              value: "This is the message2"
+              
